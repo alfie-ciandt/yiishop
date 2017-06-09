@@ -17,6 +17,7 @@ use Yii;
 class Brand extends \yii\db\ActiveRecord
 {
     public $imgFile;//文件上传属性
+    public $morenImg='@web/images/moren.png';//文件上传默认图片
     static public $statusOptions=[-1=>'删除',0=>'隐藏',1=>'正常'];
     /**
      * @inheritdoc
@@ -32,7 +33,7 @@ class Brand extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'intro', 'sort', 'status'], 'required'],
+            [['name', 'intro', 'sort', 'status','logo'], 'required'],
             [['intro'], 'string'],
             [['sort', 'status'], 'integer'],
             [['name'], 'string', 'max' => 50],
